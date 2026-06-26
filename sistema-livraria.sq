@@ -1,0 +1,32 @@
+-- Criação da tabela Clientes
+CREATE TABLE Clientes (
+    ID INTEGER PRIMARY KEY,
+    nomeCliente VARCHAR(100),
+    emailCliente VARCHAR(100)
+);
+
+-- Criação da tabela Compras
+CREATE TABLE Compras (
+    CompraID INTEGER PRIMARY KEY,
+    ClienteID INTEGER,
+    NomeLivro VARCHAR(150),
+    FOREIGN KEY (ClienteID) REFERENCES Clientes(ID)
+);
+
+-- Inserção de dados na tabela Clientes
+INSERT INTO Clientes (nomeCliente, emailCliente) VALUES
+('Ana Silva', 'ana.silva@email.com'),
+('Bruno Costa', 'bruno.costa@email.com'),
+('Carla Souza', 'carla.souza@email.com');
+
+-- Inserção de dados na tabela Compras
+INSERT INTO Compras (ClienteID, NomeLivro) VALUES
+(1, 'Dom Casmurro'),
+(1, 'O Alquimista'),
+(2, '1984'),
+(3, 'A Revolução dos Bichos'),
+(3, 'Memórias Póstumas de Brás Cubas');
+
+-- Consultas para verificar os dados
+SELECT * FROM Clientes;
+SELECT * FROM Compras;
